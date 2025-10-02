@@ -3,179 +3,254 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>28to3 — Coming Back Strong</title>
-  <meta name="description" content="Personal site and portfolio. Built fast, modern, and mobile‑friendly. Hosted on GitHub Pages." />
-  <meta property="og:title" content="28to3 — Coming Back Strong" />
-  <meta property="og:description" content="Personal site and portfolio. Built fast, modern, and mobile‑friendly." />
+  <title>28to3 · Site refresh in progress</title>
+  <meta name="description" content="Work in progress journal for the new 28to3.me experience." />
+  <meta property="og:title" content="28to3 · Site refresh in progress" />
+  <meta property="og:description" content="Follow along as the new 28to3.me takes shape." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://dummyimage.com/1200x630/111827/ffffff&text=28to3" />
   <meta name="theme-color" content="#111827" />
-
-  <!-- Optional: Google Analytics (replace G-XXXXXXX) -->
-  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);} gtag('js', new Date());
-    gtag('config', 'G-XXXXXXX');
-  </script> -->
-
-  <!-- Optional: Google AdSense (requires approval + domain verification) -->
-  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXX" crossorigin="anonymous"></script> -->
-
   <style>
-    :root{
-      --bg:#0b1220; --card:#121a2b; --muted:#94a3b8; --txt:#e5e7eb; --acc:#38bdf8; --ring:#60a5fa;
+    :root {
+      --bg:#070b16;
+      --card:#10192d;
+      --accent:#5eead4;
+      --accent-soft:rgba(94,234,212,0.25);
+      --text:#f8fafc;
+      --muted:#9aa6c7;
+      --border:#1f2a44;
       --radius:22px;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0; font-family:system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji"; background:linear-gradient(180deg,#0b1220 0%,#0f172a 100%); color:var(--txt);}
-    a{color:inherit; text-decoration:none}
-    .container{max-width:1100px; margin-inline:auto; padding:20px}
-    .nav{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 0}
-    .brand{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.3px}
-    .brand .logo{width:34px; height:34px; border-radius:10px; background:linear-gradient(135deg,#38bdf8,#60a5fa); display:grid; place-items:center; font-weight:900; color:#0b1220}
-    .btn{display:inline-flex; align-items:center; gap:.5rem; background:linear-gradient(135deg,#38bdf8,#60a5fa); color:#0b1220; border:none; padding:12px 18px; border-radius:12px; font-weight:700; cursor:pointer; box-shadow:0 10px 30px rgba(56,189,248,.25); transition:.2s transform}
-    .btn:hover{transform:translateY(-1px)}
-    .ghost{background:transparent; border:1px solid #263149; color:var(--txt)}
-    .hero{display:grid; grid-template-columns:1.2fr 1fr; gap:32px; align-items:center; padding:40px 0}
-    .badge{display:inline-flex; align-items:center; gap:.5rem; padding:6px 10px; border:1px solid #263149; border-radius:999px; color:var(--muted); font-size:.9rem}
-    h1{font-size:clamp(2rem, 4vw, 3.2rem); margin:14px 0 8px; line-height:1.1}
-    p.lead{font-size:1.15rem; color:#cdd5e1; margin:0 0 18px}
-    .card{background:rgba(255,255,255,.03); border:1px solid #263149; border-radius:var(--radius); padding:18px}
-    .grid{display:grid; gap:16px}
-    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
-    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
-    .section{padding:30px 0}
-    .code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; background:#0b1325; border:1px solid #1f2a44; border-radius:12px; padding:14px; color:#93c5fd; overflow:auto}
-    .footer{color:#8aa0c2; font-size:.95rem; padding:40px 0; border-top:1px solid #1e293b}
-    img.heroimg{width:100%; border-radius:18px; border:1px solid #263149; box-shadow:0 10px 40px rgba(2,6,23,.45)}
-    @media (max-width:900px){.hero{grid-template-columns:1fr;}}
+    * { box-sizing:border-box; }
+    body {
+      margin:0;
+      min-height:100vh;
+      font-family:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      background:radial-gradient(circle at top right, rgba(94,234,212,0.12), transparent 60%),
+                 radial-gradient(circle at bottom left, rgba(59,130,246,0.1), transparent 55%),
+                 var(--bg);
+      color:var(--text);
+      display:flex;
+      flex-direction:column;
+    }
+    header {
+      border-bottom:1px solid var(--border);
+      backdrop-filter:blur(16px);
+      background:rgba(7,11,22,0.75);
+      position:sticky;
+      top:0;
+      z-index:10;
+    }
+    .wrap {
+      max-width:960px;
+      margin-inline:auto;
+      padding:24px 20px;
+    }
+    .top {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .brand {
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:700;
+      letter-spacing:0.2px;
+    }
+    .brand span {
+      display:inline-grid;
+      place-items:center;
+      width:40px;
+      height:40px;
+      border-radius:14px;
+      background:linear-gradient(135deg, #5eead4, #38bdf8);
+      color:#020617;
+      font-weight:800;
+    }
+    .pill {
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 14px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      color:var(--muted);
+      font-size:0.92rem;
+    }
+    main {
+      flex:1;
+    }
+    .hero {
+      padding:70px 20px 40px;
+      text-align:left;
+    }
+    h1 {
+      font-size:clamp(2.3rem, 5vw, 3.5rem);
+      margin:18px 0 12px;
+      line-height:1.08;
+    }
+    p.lead {
+      margin:0 0 28px;
+      font-size:1.15rem;
+      color:#cbd5f5;
+      max-width:640px;
+    }
+    .card-grid {
+      display:grid;
+      gap:18px;
+      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+    }
+    .card {
+      background:rgba(15,24,45,0.72);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:0 20px 45px -30px rgba(15,24,45,0.9);
+    }
+    .card h3 {
+      margin-top:0;
+      margin-bottom:10px;
+      font-size:1.05rem;
+      letter-spacing:0.4px;
+    }
+    .progress {
+      height:10px;
+      border-radius:999px;
+      background:rgba(94,234,212,0.1);
+      overflow:hidden;
+      margin:14px 0 0;
+    }
+    .progress span {
+      display:block;
+      height:100%;
+      background:linear-gradient(135deg,#5eead4,#38bdf8);
+    }
+    .timeline {
+      margin:50px 0 40px;
+      border-left:2px solid rgba(94,234,212,0.2);
+      padding-left:20px;
+      display:grid;
+      gap:26px;
+    }
+    .milestone {
+      position:relative;
+    }
+    .milestone::before {
+      content:"";
+      position:absolute;
+      left:-31px;
+      top:4px;
+      width:14px;
+      height:14px;
+      border-radius:50%;
+      background:var(--bg);
+      border:3px solid var(--accent);
+      box-shadow:0 0 0 6px var(--accent-soft);
+    }
+    .milestone time {
+      font-size:0.85rem;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:0.12em;
+    }
+    footer {
+      border-top:1px solid var(--border);
+      color:var(--muted);
+      text-align:center;
+      padding:28px 20px;
+      font-size:0.95rem;
+    }
+    @media (max-width:640px) {
+      .top {flex-direction:column; align-items:flex-start;}
+      header {position:static;}
+      .hero {padding-top:50px;}
+    }
   </style>
 </head>
 <body>
-  <header class="container nav">
-    <div class="brand"><div class="logo">28</div> 28to3</div>
-    <nav style="display:flex; gap:10px">
-      <a class="btn ghost" href="#features">Features</a>
-      <a class="btn ghost" href="#contact">Contact</a>
-      <a class="btn" href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
-    </nav>
+  <header>
+    <div class="wrap top">
+      <div class="brand"><span>28</span> 28to3</div>
+      <div class="pill">🔄 Site refresh underway</div>
+    </div>
   </header>
 
-  <main class="container">
-    <section class="hero">
-      <div>
-        <span class="badge">🚀 Built with GitHub Pages</span>
-        <h1>Ship fast, learn faster.</h1>
-        <p class="lead">This is a clean, single‑file starter you can drop into a repo as <strong>index.html</strong>. It’s responsive, fast, and easy to extend. Perfect for personal projects, promos, or documentation.</p>
-        <div style="display:flex; gap:10px; flex-wrap:wrap; margin:10px 0 22px">
-          <a class="btn" href="#get-started">Get Started</a>
-          <a class="btn ghost" href="#chat">Add Chatbot</a>
+  <main>
+    <section class="wrap hero">
+      <p class="pill" style="margin:0; border-color:rgba(94,234,212,0.35); color:#5eead4; background:rgba(94,234,212,0.08);">Progress Log · Updated <span id="last-update">May 2024</span></p>
+      <h1>Building the next chapter of 28to3.</h1>
+      <p class="lead">The new 28to3.me will be a living hub for experiments, essays, and community projects. While we design, test, and iterate, this page tracks what’s shipped and what’s next.</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Design language</h3>
+          <p>Exploring a dark, cinematic aesthetic with neon accents that nod to late-night build sessions.</p>
+          <div class="progress" aria-hidden="true"><span style="width:72%"></span></div>
+          <p style="margin:10px 0 0; font-size:0.9rem; color:var(--muted);">72% complete</p>
         </div>
         <div class="card">
-          <strong>Quick publish (GitHub Pages):</strong>
-          <ol style="margin:.6rem 0 0 1.2rem; color:#cbd5e1">
-            <li>Create a new repository named <code>username.github.io</code>.</li>
-            <li>Upload this file as <code>index.html</code> to the repo root.</li>
-            <li>Go to <em>Settings → Pages</em> and set Source to <em>main</em> (or <em>docs</em> folder), if needed.</li>
-            <li>Open <code>https://username.github.io</code> (first publish may take a minute).</li>
-          </ol>
-        </div>
-      </div>
-      <div>
-        <img class="heroimg" alt="Clean gradient header showing a modern landing page" src="https://images.unsplash.com/photo-1542751110-97427bbecf20?q=80&w=1600&auto=format&fit=crop" />
-      </div>
-    </section>
-
-    <section id="features" class="section">
-      <h2 style="margin:0 0 12px">Features</h2>
-      <div class="grid cols-3">
-        <div class="card"><h3 style="margin-top:0">Single‑file</h3><p>All HTML, CSS, and examples in one file so you can ship instantly.</p></div>
-        <div class="card"><h3 style="margin-top:0">Responsive</h3><p>Looks great on phones, tablets, and desktops without extra work.</p></div>
-        <div class="card"><h3 style="margin-top:0">Extendable</h3><p>Drop in sections, forms, analytics, or a chat widget (see below).</p></div>
-      </div>
-    </section>
-
-    <section id="get-started" class="section">
-      <h2 style="margin:0 0 10px">Get started quickly</h2>
-      <div class="grid cols-2">
-        <div class="card">
-          <h3 style="margin-top:0">Command line (optional)</h3>
-<pre class="code"># 1) create repo and push
-mkdir my-site && cd my-site
-printf '%s' "&lt;!doctype html&gt;..." &gt; index.html
-git init && git add .
-git commit -m "first ship"
-# Create a new repo on GitHub with the same name, then:
-git branch -M main
-git remote add origin https://github.com/&lt;your-username&gt;/&lt;repo&gt;.git
-git push -u origin main
-
-# 2) enable GitHub Pages in Settings → Pages
-</pre>
+          <h3>Content architecture</h3>
+          <p>Mapping the story: personal notes, product breakdowns, and a transparent roadmap.</p>
+          <div class="progress" aria-hidden="true"><span style="width:54%"></span></div>
+          <p style="margin:10px 0 0; font-size:0.9rem; color:var(--muted);">54% complete</p>
         </div>
         <div class="card">
-          <h3 style="margin-top:0">Drag & drop (no CLI)</h3>
-          <p>On github.com, click <em>New</em> repo → upload <code>index.html</code>. Then enable Pages in <em>Settings → Pages</em>.</p>
-          <p style="margin-top:8px">Want a custom domain (e.g. <code>28to3.me</code>)? Add your domain in <em>Settings → Pages</em>, point DNS with a <code>CNAME</code> to <code>username.github.io</code>, and commit a <code>CNAME</code> file containing the domain.</p>
+          <h3>Interactive prototypes</h3>
+          <p>Building mini-tools to document progress: changelog, idea backlog, and live builds.</p>
+          <div class="progress" aria-hidden="true"><span style="width:38%"></span></div>
+          <p style="margin:10px 0 0; font-size:0.9rem; color:var(--muted);">38% complete</p>
         </div>
       </div>
-    </section>
 
-    <section id="chat" class="section">
-      <h2 style="margin:0 0 10px">Add a chatbot (no server)</h2>
-      <p class="lead">GitHub Pages is static, so use a hosted widget. Two easy options:</p>
-      <div class="grid cols-2">
-        <div class="card">
-          <h3 style="margin-top:0">Option A — Crisp</h3>
-<pre class="code">&lt;!-- Replace YOUR_CRISP_ID from https://app.crisp.chat/ --&gt;
-&lt;script type="text/javascript"&gt;
-  window.$crisp=[]; window.CRISP_WEBSITE_ID="YOUR_CRISP_ID";
-  (function(){d=document; s=d.createElement("script"); s.src="https://client.crisp.chat/l.js"; s.async=1; d.getElementsByTagName("head")[0].appendChild(s);})();
-&lt;/script&gt;</pre>
-          <p style="margin-top:8px">Creates a chat bubble on the bottom‑right. You can connect bots, FAQs, or live chat.</p>
+      <div class="timeline">
+        <div class="milestone">
+          <time>April 2024</time>
+          <h3 style="margin:6px 0 6px">Audit &amp; archive</h3>
+          <p style="margin:0; color:#d0dcff;">Retired the legacy splash page and gathered notes from the last two years of experiments.</p>
         </div>
-        <div class="card">
-          <h3 style="margin-top:0">Option B — Tidio</h3>
-<pre class="code">&lt;!-- Replace YOUR_TIDIO_KEY from https://www.tidio.com/ --&gt;
-&lt;script src="//code.tidio.co/YOUR_TIDIO_KEY.js" async&gt;&lt;/script&gt;</pre>
-          <p style="margin-top:8px">Also simple: paste the script before <code>&lt;/body&gt;</code>. Customize flows in their dashboard.</p>
+        <div class="milestone">
+          <time>May 2024</time>
+          <h3 style="margin:6px 0 6px">Moodboards &amp; typography tests</h3>
+          <p style="margin:0; color:#d0dcff;">Locked a type pairing and color palette. Early motion studies for section transitions underway.</p>
+        </div>
+        <div class="milestone">
+          <time>June 2024</time>
+          <h3 style="margin:6px 0 6px">Prototype the hub</h3>
+          <p style="margin:0; color:#d0dcff;">Targeting a beta with a journal feed, project cards, and a “what I’m learning” panel.</p>
         </div>
       </div>
-      <p style="margin-top:10px; color:#cbd5e1">If you prefer a custom AI chatbot using your own API key, you’ll need a tiny server (e.g., Cloudflare Workers, Netlify Functions, or Vercel) to keep your key secret.</p>
-    </section>
 
-    <section id="contact" class="section">
-      <h2 style="margin:0 0 10px">Contact</h2>
-      <div class="card">
-        <form name="contact" method="POST" data-netlify="true">
-          <input type="hidden" name="form-name" value="contact" />
-          <div class="grid cols-2" style="gap:12px">
-            <div><label>Name<br><input name="name" required style="width:100%; padding:12px; border-radius:10px; border:1px solid #263149; background:#0b1325; color:var(--txt)"></label></div>
-            <div><label>Email<br><input name="email" type="email" required style="width:100%; padding:12px; border-radius:10px; border:1px solid #263149; background:#0b1325; color:var(--txt)"></label></div>
+      <div class="card" style="margin-top:30px;">
+        <h3>Want the launch note?</h3>
+        <p style="margin:0 0 16px; color:#d0dcff;">Drop your email and I’ll send a single update when the new site goes live—no spam, promise.</p>
+        <form name="notify" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="notify" />
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <label style="flex:1 1 220px;">
+              <span style="display:block; font-size:0.85rem; color:var(--muted); margin-bottom:6px;">Email</span>
+              <input name="email" type="email" required
+                     style="width:100%; padding:14px 16px; border-radius:14px; border:1px solid var(--border); background:rgba(7,11,22,0.6); color:var(--text);" />
+            </label>
+            <button type="submit"
+                    style="flex:0 0 auto; padding:14px 20px; border-radius:14px; border:none; font-weight:600; letter-spacing:0.4px; background:linear-gradient(135deg,#5eead4,#38bdf8); color:#020617; cursor:pointer; box-shadow:0 16px 30px -18px rgba(94,234,212,0.75);">
+              Notify me
+            </button>
           </div>
-          <div style="margin-top:10px"><label>Message<br><textarea name="message" rows="5" required style="width:100%; padding:12px; border-radius:10px; border:1px solid #263149; background:#0b1325; color:var(--txt)"></textarea></label></div>
-          <div style="margin-top:12px"><button class="btn" type="submit">Send</button></div>
-          <p style="color:#93c5fd; margin-top:8px">Tip: On GitHub Pages, forms don’t process by themselves. Use a service like Netlify Forms, Basin, or Formspree.
-          </p>
+          <p style="margin:14px 0 0; font-size:0.8rem; color:var(--muted);">Powered by Netlify Forms while we build a custom workflow.</p>
         </form>
       </div>
     </section>
   </main>
 
-  <footer class="container footer">
-    <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap">
-      <span>© <span id="year"></span> 28to3 • Built on GitHub Pages</span>
-      <a href="#" class="btn ghost">Back to top ↑</a>
-    </div>
+  <footer>
+    <p>© <span id="year"></span> 28to3 · Crafting in public.</p>
   </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    const updated = new Date();
+    const month = updated.toLocaleString('default', { month: 'long' });
+    document.getElementById('last-update').textContent = `${month} ${updated.getFullYear()}`;
   </script>
-
-  <!-- Place your Crisp or Tidio snippet here (see above) just before closing body tag. -->
 </body>
 </html>
-
